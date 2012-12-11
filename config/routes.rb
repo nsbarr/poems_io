@@ -5,6 +5,11 @@ PoemsIo::Application.routes.draw do
 
   resources :users
 
+  root to: 'users#new'
+
+  match '/compose',  to: 'poems#new'
+  match '/log', to: 'requests#backlog'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

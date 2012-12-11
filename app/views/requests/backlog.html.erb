@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+<% @request.each do |i| %>
+<p>
+  <b>Content:</b>
+  <%= i.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= i.user_id %>
+</p>
+
+<p>
+  <b>Poem:</b>
+  <% if i.poems.any? == FALSE %>
+  Needs Poem. <a href="/requests/<%=i.id%>/edit">Write it</a>
+  <% else %>
+  <%= i.poems %>
+  <% end %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>

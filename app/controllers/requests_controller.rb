@@ -14,13 +14,23 @@ class RequestsController < ApplicationController
   # GET /requests/1.json
   def show
     @request = Request.find(params[:id])
-
+    @poem = @request.poems
+    @newpoem = @request.poems.build
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @request }
     end
   end
 
+  def backlog
+      @user = User.all
+      @request = Request.all
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @request }
+    end
+  end
   # GET /requests/new
   # GET /requests/new.json
   def new
@@ -35,6 +45,13 @@ class RequestsController < ApplicationController
   # GET /requests/1/edit
   def edit
     @request = Request.find(params[:id])
+    @poem = Poem.new
+    #@poem = @request.poems.build
+    #@poem = Request.find(params[:id]).poems
+    #@poem = @request.poems.create
+    #@numberofpoems = @request.poems.count
+    #@user = User.find(params[:id])
+    #@poem = Poem.find(params[:id])
   end
 
   # POST /requests
@@ -56,7 +73,9 @@ class RequestsController < ApplicationController
   # PUT /requests/1
   # PUT /requests/1.json
   def update
-    @request = Request.find(params[:id])
+    @request = Request.find(params[:id])    
+    @poem = @request.poems.build(params[:poem])
+    
 
     respond_to do |format|
       if @request.update_attributes(params[:request])

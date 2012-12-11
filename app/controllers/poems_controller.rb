@@ -13,6 +13,7 @@ class PoemsController < ApplicationController
   # GET /poems/1
   # GET /poems/1.json
   def show
+    
     @poem = Poem.find(params[:id])
 
     respond_to do |format|
@@ -24,6 +25,7 @@ class PoemsController < ApplicationController
   # GET /poems/new
   # GET /poems/new.json
   def new
+    
     @poem = Poem.new
 
     respond_to do |format|
@@ -41,16 +43,12 @@ class PoemsController < ApplicationController
   # POST /poems.json
   def create
     @poem = Poem.new(params[:poem])
-
-    respond_to do |format|
-      if @poem.save
-        format.html { redirect_to @poem, notice: 'Poem was successfully created.' }
-        format.json { render json: @poem, status: :created, location: @poem }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @poem.errors, status: :unprocessable_entity }
-      end
-    end
+    if @poem.save
+          flash[:success] = "Poem created!"
+          redirect_to root_url
+        else
+          render :action => 'new'        
+        end
   end
 
   # PUT /poems/1

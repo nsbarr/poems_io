@@ -10,6 +10,14 @@
   <%= @user.poet %>
 </p>
 
+<p>
+  <b>Content:</b>
+  <%= @user.requests.count%>
+  <br />
+  <% @user.requests.each do |i| %>
+      <p><%= i.content %></p>
+  <% end %>    
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

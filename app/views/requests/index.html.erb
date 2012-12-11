@@ -1,10 +1,12 @@
-<h1>Listing requests</h1>
+<h1>Request Backlog</h1>
 
+
+<h2>Open Requests</h2>
+    
+    
 <table>
   <tr>
-    <th>Content</th>
-    <th>User</th>
-    <th></th>
+    <th>Request</th>
     <th></th>
     <th></th>
   </tr>
@@ -12,10 +14,12 @@
 <% @requests.each do |request| %>
   <tr>
     <td><%= request.content %></td>
-    <td><%= request.user_id %></td>
-    <td><%= link_to 'Show', request %></td>
-    <td><%= link_to 'Edit', edit_request_path(request) %></td>
-    <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if request.poems.any? == FALSE %>
+        <td><%= link_to 'Needs Poem', edit_request_path(request) %></td>
+        <% else %>
+        <td><%= link_to 'View Poem', edit_request_path(request) %></td>
+    <% end %>
+    <td><%= link_to 'Delete Request', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

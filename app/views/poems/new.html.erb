@@ -1,5 +1,8 @@
-<h1>New poem</h1>
+<h1>Write a poem</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', poems_path %>
+ <%= form_for(@poem) do |f| %>
+     
+     <%= f.label :content %>
+     <%= f.text_field :content %>
+     <%= f.submit "Submit Poem", :class => "btn btn-large btn-primary" %>   
+    <% end %>

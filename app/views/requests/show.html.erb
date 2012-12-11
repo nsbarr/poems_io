@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<p><%= @request.poems.count %></p>
+
+
 <p>
   <b>Content:</b>
   <%= @request.content %>
@@ -10,6 +13,21 @@
   <%= @request.user_id %>
 </p>
 
+<table>
+  <tr>
+    <th>Content</th>
+    <th>User</th>
+    <th>Request</th>
+  </tr>
+
+<% @request.poems.each do |poem| %>
+  <tr>
+    <td><%= poem.content %></td>
+    <td><%= poem.user_id %></td>
+    <td><%= poem.request_id %></td>
+  </tr>
+<% end %>
+</table>
 
 <%= link_to 'Edit', edit_request_path(@request) %> |
 <%= link_to 'Back', requests_path %>
