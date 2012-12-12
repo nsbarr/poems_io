@@ -29,19 +29,19 @@
               <div class="nav-collapse collapse" style="height: 0px;">
                 <ul class="nav">
                 <% if request.fullpath == '/log'%>
-                  <li class = "active"><a href="/log">Backlog</a></li>
+                  <li class = "active"><a href="/requests">Backlog</a></li>
                   <li><a href="/about">About</a></li>
                   <li><a href="/contact">Contact</a></li>
                  <% elsif request.fullpath == '/about'%>
-                    <li><a href="/log">Backlog</a></li>
+                    <li><a href="/requests">Backlog</a></li>
                     <li class = "active"><a href="/about">About</a></li>
                     <li><a href="/contact">Contact</a></li>
                  <% elsif request.fullpath == '/contact'%>
-                    <li><a href="/log">Backlog</a></li>
+                    <li><a href="/requests">Backlog</a></li>
                     <li ><a href="/about">About</a></li>
                     <li class = "active"><a href="/contact">Contact</a></li>
                  <% else %>
-                   <li><a href="/log">Backlog</a></li>
+                   <li><a href="/requests">Backlog</a></li>
                    <li><a href="/about">About</a></li>
                    <li><a href="/contact">Contact</a></li>
                 <% end %>

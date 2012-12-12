@@ -2,10 +2,9 @@
 
 
 <h2>Open Requests</h2>
-    
-    
-<table>
-  <tr>
+<table class ="table">
+  <thead>
+      <tr>
     <th>Request</th>
     <th></th>
     <th></th>
@@ -13,13 +12,32 @@
 
 <% @requests.each do |request| %>
   <tr>
-    <td><%= request.content %></td>
     <% if request.poems.any? == FALSE %>
-        <td><%= link_to 'Needs Poem', edit_request_path(request) %></td>
-        <% else %>
-        <td><%= link_to 'View Poem', edit_request_path(request) %></td>
-    <% end %>
+        <td><%= request.content %></td>
+        <td><%= link_to 'Write Poem', edit_request_path(request) %></td>
+        <td><%= link_to 'Delete Request', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+  </tr>
+<% end %>
+</table>
+
+<h2>Closed Requests</h2>
+
+<table class ="table">
+  <thead>
+      <tr>
+    <th>Request</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @requests.each do |request| %>
+  <tr>
+    <% if request.poems.any? == TRUE %>
+    <td><%= request.content %></td>
+    <td><%= link_to 'View Poem', request_path(request) %></td>
     <td><%= link_to 'Delete Request', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

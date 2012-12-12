@@ -1,15 +1,17 @@
-<h1>New user</h1>
+<p class="lead">Fresh, homemade poems delivered to your phone.</p>    
 
 <%= render 'shared/error_messages' %>
 
 <%= form_for @user do |f| %>
 
    <%=f.label :phone %>
-   <%=f.text_field :phone %>
+   <%=f.text_field :phone, :placeholder => "(###) ### - ####" %>
 
    <%= fields_for @request do |fa| %>
       <%=fa.label :content %>
-      <%=fa.text_field :content %>
+      <%=fa.text_field :content, :placeholder => "a red wheelbarrow" %>
    <% end %>
-<%= f.submit "Text Me a Poem!", :class => "btn btn-large btn-primary" %>    
+   <br />
+   <br />
+    <%= f.submit "Text Me a Poem!", :class => "btn btn-large btn-primary" %>    
 <% end %>

@@ -58,7 +58,7 @@ class UsersController < ApplicationController
        twilio_token = "cbb3471db9d83b61598159b5210404f1"
        twilio_phone_number = "6464900303"
        number_to_send_to = @user.phone
-       theme = @request.conten
+       theme = @request.content
        id = @user.id
        url = "http://poems.io/users/#{id}/edit"
        #Rolls the dice to select a poet
@@ -82,9 +82,9 @@ class UsersController < ApplicationController
           :body => "Thanks, I'm dreaming up your poem about #{theme}"
         )
         
-        redirect_to :action => 'index'
+        redirect_to @user
       else
-        render :action => 'new'
+        render 'new'
       end
   end
     
