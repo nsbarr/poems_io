@@ -1,8 +1,7 @@
-<h1>Write a poem about <%= @request.content %></h1>
+<p class="lead">Write a poem about <%= @request.content %></p>
 
 <%= form_for(@request) do |f| %>
     <%= fields_for @poem do |fa| %>
-        <%=fa.label :content %>
         <%= fa.text_area :content, placeholder: "Compose new poem..." %>
     <% end %>
 <br />

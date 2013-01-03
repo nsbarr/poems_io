@@ -9,6 +9,7 @@ PoemsIo::Application.routes.draw do
 
   match '/compose',  to: 'poems#new'
   match '/log', to: 'requests#backlog'
+  match '/success', to: 'requests#success'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -23,14 +23,6 @@ class RequestsController < ApplicationController
     end
   end
 
-  def backlog
-      @user = User.all
-      @request = Request.all
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @request }
-    end
-  end
   # GET /requests/new
   # GET /requests/new.json
   def new
@@ -86,7 +78,7 @@ class RequestsController < ApplicationController
            :to => number_to_send_to,
            :body => "#{poem_text}"
          )    
-         redirect_to @user    
+         redirect_to "/success"    
       else
         render 'edit'
       end

@@ -51,8 +51,7 @@ class UsersController < ApplicationController
     if @user.save
 
        #Sends an email out when a user is created
-       #UserMailer.request_alert(@user).deliver
-
+       #UserMailer.request_alert(@user).deliver       
        #Set up the Twilio stuff
        twilio_sid = "ACfff561dd3ac397a29183f7bf7d68e370"
        twilio_token = "cbb3471db9d83b61598159b5210404f1"
