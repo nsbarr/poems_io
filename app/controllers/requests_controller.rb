@@ -78,6 +78,12 @@ class RequestsController < ApplicationController
            :to => number_to_send_to,
            :body => "#{poem_text}"
          )    
+         @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+         @twilio_client.account.sms.messages.create(
+            :from => "+1#{twilio_phone_number}",
+            :to => number_to_send_to,
+            :body => "Would you be so kind as to rate this poem from 1 (disappointing) to 10 (delightful)? Our poets are eager to improve."
+          )
          redirect_to "/success"    
       else
         render 'edit'
