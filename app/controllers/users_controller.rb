@@ -58,8 +58,8 @@ class UsersController < ApplicationController
        twilio_phone_number = "6464900303"
        number_to_send_to = @user.phone
        theme = @request.content
-       id = @user.id
-       url = "http://poems.io/users/#{id}/edit"
+       id = @request.id
+       url = "#{ROOT_URL}/requests/#{id}/edit"
        #Rolls the dice to select a poet
        poet_to_send_to = ["9143934990","4782277137"].sample
 
