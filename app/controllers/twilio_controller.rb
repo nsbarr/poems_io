@@ -3,7 +3,7 @@ class TwilioController < ApplicationController
   def process_sms
     @rating = params[:Body]
     #Find the poem for this user's latest request
-    Poem.rating = @rating
+    #Poem.rating = @rating
     if @rating == "10"
       render 'process_sms.xml.erb', :content_type => 'text/xml'
     else
