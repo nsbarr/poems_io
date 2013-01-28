@@ -13,8 +13,8 @@ class PoemsController < ApplicationController
   # GET /poems/1
   # GET /poems/1.json
   def show
-    
     @poem = Poem.find(params[:id])
+    @request = @poem.request
 
     respond_to do |format|
       format.html # show.html.erb

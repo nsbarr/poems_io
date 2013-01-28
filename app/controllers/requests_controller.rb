@@ -63,7 +63,6 @@ class RequestsController < ApplicationController
     user_id_int = @request.user_id
     @user = User.find(user_id_int)    
     @poem = @request.poems.build(params[:poem])
-    
 
     number_to_send_to = @user.phone
     twilio_sid = "ACfff561dd3ac397a29183f7bf7d68e370"
