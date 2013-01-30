@@ -65,19 +65,14 @@ class RequestsController < ApplicationController
     @poem = @request.poems.build(params[:poem])
 
     number_to_send_to = @user.phone
-    twilio_sid = "ACfff561dd3ac397a29183f7bf7d68e370"
-    twilio_token = "cbb3471db9d83b61598159b5210404f1"
-    twilio_phone_number = "6464900303"
 
     if @poem.update_attributes(params[:content])
          poem_text = @poem.content
-         @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
          @twilio_client.account.sms.messages.create(
            :from => "+1#{twilio_phone_number}",
            :to => number_to_send_to,
            :body => "#{poem_text}"
          )    
-         @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
          @twilio_client.account.sms.messages.create(
             :from => "+1#{twilio_phone_number}",
             :to => number_to_send_to,
