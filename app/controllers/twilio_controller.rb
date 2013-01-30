@@ -12,6 +12,7 @@ class TwilioController < ApplicationController
   end
   
   def smslog
-    @sms = twilio_client.account.sms.messages.list
+  @client = Twilio::REST::Client.new twilio_sid, twilio_token    
+  @message = @client.account.sms.messages.list
   end
 end
