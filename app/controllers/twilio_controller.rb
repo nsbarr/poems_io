@@ -10,5 +10,8 @@ class TwilioController < ApplicationController
       render 'process_sms_fail.xml.erb', :content_type => 'text/xml'
     end
   end
-
+  
+  def smslog
+    @sms = twilio_client.account.sms.messages.list
+  end
 end
