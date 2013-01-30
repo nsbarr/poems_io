@@ -8,7 +8,6 @@ PoemsIo::Application.routes.draw do
   root to: 'users#new'
 
   match '/compose',  to: 'poems#new'
-  match '/log', to: 'requests#backlog'
   match '/success', to: 'requests#success'
   match '/log', to: 'twilio#smslog'
   match 'twilio/process_sms' => 'twilio#process_sms'
