@@ -65,6 +65,13 @@ class RequestsController < ApplicationController
     @poem = @request.poems.build(params[:poem])
 
     number_to_send_to = @user.phone
+    
+    twilio_sid = "ACfff561dd3ac397a29183f7bf7d68e370"
+    twilio_token = "cbb3471db9d83b61598159b5210404f1"
+    twilio_phone_number = "6464900303"
+    
+    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+    
 
     if @poem.update_attributes(params[:content])
          poem_text = @poem.content
@@ -73,11 +80,12 @@ class RequestsController < ApplicationController
            :to => number_to_send_to,
            :body => "#{poem_text}"
          )    
-         @twilio_client.account.sms.messages.create(
-            :from => "+1#{twilio_phone_number}",
-            :to => number_to_send_to,
-            :body => "Would you be so kind as to rate this poem from 1 (disappointing) to 10 (delightful)? Our poets are eager to improve."
-          )
+         # feedback request
+        # @twilio_client.account.sms.messages.create(
+        #    :from => "+1#{twilio_phone_number}",
+        #    :to => number_to_send_to,
+        #    :body => "Would you be so kind as to rate this poem from 1 (disappointing) to 10 (delightful)? Our poets are eager to improve."
+        #  )
          redirect_to "/success"    
       else
         render 'edit'

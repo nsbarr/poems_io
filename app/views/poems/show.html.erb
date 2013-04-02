@@ -1,21 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Content:</b>
-  <%= @poem.content %>
-</p>
+<span class="poemcontent">
+<h3><%= @request.content %></h3>
+<br />
+  <%= simple_format(@poem.content) %>
+</span>
 
-<p>
-  <b>Request:</b>
-  <%= @request.content %>
-</p>
-
-<p>
-  <b>Rating:</b>
-  <%= @poem.rating %>
-</p>
-
-
-
-<%= link_to 'Edit', edit_poem_path(@poem) %> |
-<%= link_to 'Back', poems_path %>
+<!--<%= link_to 'Edit', edit_poem_path(@poem) %> |
+<%= link_to 'Back', poems_path %> -->
