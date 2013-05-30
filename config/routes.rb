@@ -1,4 +1,6 @@
 PoemsIo::Application.routes.draw do
+  resources :foobars
+
   resources :poems
 
   resources :requests

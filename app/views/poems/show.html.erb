@@ -1,3 +1,11 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=357753267646675";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <p id="notice"><%= notice %></p>
 
 <span class="poemcontent">
@@ -6,5 +14,22 @@
   <%= simple_format(@poem.content) %>
 </span>
 
+<br />
+<br />
+<br />
+<span class="sharelinks">
+    <p>If you enjoyed this poem, please consider sharing it:</p>
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:title="{Title}" addthis:url="{Permalink}">
+    <a class="addthis_button_preferred_1"></a>
+    <a class="addthis_button_preferred_2"></a>
+    <a class="addthis_button_preferred_3"></a>
+    <a class="addthis_button_preferred_4"></a>
+    <a class="addthis_button_compact"></a>
+    <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51608fe30297baef"></script>
+    <!-- AddThis Button END -->
+    
 <!--<%= link_to 'Edit', edit_poem_path(@poem) %> |
 <%= link_to 'Back', poems_path %> -->

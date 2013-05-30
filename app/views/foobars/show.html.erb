@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<% visibility = 1 + rand(2) %>
+
+<% @paragraphbuilder.each do |paragraph| %>
+  <P>
+  <% word = paragraph.split(" ") %>
+  <% word.each do |foo| %>
+    <% if visibility == 1 %>
+    <span class = "redacted"><%= foo %></span>
+    <% else %>
+    <span class = "visible"><%= foo %></span>
+    <% end %>
+    <% if foo.split('').last == "." %>
+    <% visibility = 1 + rand(2) %>
+    <% end %>
+  <% end %>
+  </p>
+<% end %>
+
+<br />
+<br />
+
+<%= link_to 'Edit', edit_foobar_path(@foobar) %> |
+<%= link_to 'Back', foobars_path %>

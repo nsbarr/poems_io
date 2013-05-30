@@ -1,0 +1,10 @@
+<p class="lead redactions"><span class="redacted">------</span>Redactions<span class="redacted">------------</span></p>    
+
+<div id="redactions_form">
+ <%= form_for(@foobar, remote: true) do |f| %>
+     
+     <%= f.text_area :content, :rows => 40, :class => "input-xxlarge" %>
+     <br />
+     <%= f.submit "Submit Poem", :class => "btn btn-large btn-block btn-primary" %>   
+    <% end %>
+</div>
