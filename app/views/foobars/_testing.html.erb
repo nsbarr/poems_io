@@ -3,19 +3,10 @@
 <% visibility = 1 + rand(2) %>
 
 <% @paragraphbuilder.each do |paragraph| %>
-  <P>
-  <% word = paragraph.split(" ") %>
-  <% word.each do |foo| %>
-    <% if visibility == 1 %>
-    <span class = "redacted"><%= foo %></span>
-    <% else %>
-    <span class = "visible"><%= foo %></span>
-    <% end %>
-    <% if foo.split('').last == "." %>
-    <% visibility = 1 + rand(2) %>
-    <% end %>
-  <% end %>
-  </p>
+<p>
+<% word = paragraph.split(" ") %>
+    <% word.each do |foo| %><% if visibility == 1 %><span class = "redacted"><%=foo %>&nbsp;</span><% else %><span class = "visible"><%=foo %>&nbsp;</span><% end %><% if foo.split('').last == "." %><% visibility = 1 + rand(2) %><% end %><% end %>
+</p>
 <% end %>
 
 <br />

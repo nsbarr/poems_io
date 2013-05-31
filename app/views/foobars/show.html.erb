@@ -4,8 +4,9 @@
 
 <% @paragraphbuilder.each do |paragraph| %>
   <P>
-  <% word = paragraph.split(" ") %>
+  <% word = paragraph.split("") %>
   <% word.each do |foo| %>
+    <span class = "wtf">
     <% if visibility == 1 %>
     <span class = "redacted"><%= foo %></span>
     <% else %>
@@ -14,6 +15,7 @@
     <% if foo.split('').last == "." %>
     <% visibility = 1 + rand(2) %>
     <% end %>
+    </span>
   <% end %>
   </p>
 <% end %>
